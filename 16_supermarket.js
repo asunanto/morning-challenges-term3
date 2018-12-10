@@ -30,8 +30,31 @@ Check your solutions with mocha 16_supermarket.js
 */
 
 function queueTime(customers, n) {
-    // Your code here
+    let till = {}
+    let till_no = 1
+    let maxWaitTime = 0
+    for (customer of customers) {
+        if (till[till_no] === undefined) till[till_no] = 0  
+        till[till_no] += customer 
+        if (till[till_no] > maxWaitTime) maxWaitTime = till[till_no] 
+        if (++till_no > n) till_no = 1 // toggles till with the given number of n
+    }
+    return maxWaitTime
 };
+   // for (i = 1; i<=n; i++)  till[i] = [] //initalise tills with empty arrays
+    
+    // for (customer of customers) {
+    //     till[till_no].push(customer) 
+    //     if (++till_no > n) till_no = 1 // toggles till with the given number of n
+    // }
+
+    // totalTime = 0
+    
+    // for (key in till) {
+    //     let sum = till[key].reduce((a, b) => a + b, 0)
+    //     if (sum > totalTime) totalTime = sum // takes the largest sum
+    // }
+    
 
 const assert = require('assert');
 
