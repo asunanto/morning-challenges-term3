@@ -17,7 +17,37 @@ Google - mocha tests to get an idea.
 */
 
 const countEvens = (arr) => {
-// Your code here
+  let counter = 0
+  for (num of arr) {
+    if (num % 2 == 0) counter++
+  }
+  return counter
 }
   
 // Your tests here
+const assert = require('assert')
+
+describe('countEvens', function() {
+  context('Should return the correct number of odds in an array', function() {
+    it('Should return 2 with [1,2,3,4]', function () {
+      assert.equal(countEvens([1, 2, 3, 4]), 2)
+    })
+    it('Should return 3 with [1,2,3,4,5,6]', function () {
+      assert.equal(countEvens([1,2,3,4,5,6]), 3)
+    })
+    it('Should return 0 with [0,1]', function () {
+      assert.equal(countEvens([1,3,5]), 0)
+    })
+  })
+  context('Should return 0 for invalid inputs', function() {
+    it('Should return 0 with empty array', function() {
+      assert.equal(countEvens([]),0)
+    })
+    it('Should return 0 with an array of chars', function() {
+      assert.equal(countEvens(['a','b','c']),0)
+    })
+    it('Should handle an array of chars and numbers', function() {
+      assert.equal(countEvens(['aa','b','c',1,2]),1)
+    })
+  })
+})
