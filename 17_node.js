@@ -21,7 +21,7 @@
 */
 
 const http = require('http')
-const port = 3000
+const port = 3001
 
 const requestHandler = (request, response) => {
 
@@ -31,11 +31,18 @@ const requestHandler = (request, response) => {
     response.end('world')
   }
 
+  else if (request.url === '/') {
+    response.writeHead(200, {'Content-type':'html'})
+    // response.write()
+    response.end('<h1>Hello, I am a webserver!</h1>')
+  }
+
   response.end('Not found!!')
 }
 
 const server = http.createServer(requestHandler)
 
 server.listen(port, () => {
+
   console.log(`server is listening on ${port}`)
 })
