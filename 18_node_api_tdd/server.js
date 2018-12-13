@@ -10,7 +10,7 @@
      Stop the server and run the tests with `npm test`
 
   2. There's a 'deprecated' warning in your logs. Fix this.
-
+      // npm install install dependencies
   3. Add a 'year' property onto each book. Use correct TDD
      practice (update the test, watch it fail, update server.js
      to make it pass).
@@ -27,11 +27,13 @@ const port = 3000;
 let books = [
   {
     id: 0,
-    title: 'Eloquent JavaScript 2nd Edition'
+    title: 'Eloquent JavaScript 2nd Edition',
+    year: 2000
   },
   {
     id: 1,
-    title: 'JavaScript: The Good Parts'
+    title: 'JavaScript: The Good Parts',
+    year: 2001
   }
 ];
 
