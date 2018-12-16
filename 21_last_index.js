@@ -19,23 +19,44 @@ _.findLastIndex(users, {
 */
 
 const findLastIndex = (array, needle) => {
-// Your code here!
+  let needle_key = Object.keys(needle)
+  needle_key = needle_key[0]
+  for (let i = array.length - 1; i >= 0; i--) {
+    if (array[i][needle_key] === needle[needle_key]) return i
+  }
+  // for (let i=array.length-1; i>=0; i--) {
+  //   for(key in needle) {
+  //     if (array[i][key] === needle[key]) return i
+  //   }
+  // }
 }
-  
-  
+
+
 // Check your solution by running these tests: mocha last_index.js
 const assert = require('assert');
 
 describe('Find Last Index', () => {
   it('finds the last index', () => {
-    const objects = [
-      {a: 0, b: 0},
-      {a: 1, b: 1},
-      {a: 2, b: 2},
-      {a: 0, b: 0}
+    const objects = [{
+        a: 0,
+        b: 0
+      },
+      {
+        a: 1,
+        b: 1
+      },
+      {
+        a: 2,
+        b: 2
+      },
+      {
+        a: 0,
+        b: 0
+      }
     ];
-    const result = findLastIndex(objects, {a: 0});
+    const result = findLastIndex(objects, {
+      a: 0
+    });
     assert.equal(result, 3);
   })
 });
-  
