@@ -9,7 +9,15 @@ mocha 22_uniqueString.js
 */
 
 function uniqueString(array) {
-    // Your code here
+    let hash = {}
+    for (string of array) {
+        let uniq_string = [...new Set(string.toLowerCase())].sort().join('')
+        if (hash[uniq_string] === undefined) hash[uniq_string] = []
+        hash[uniq_string].push(string)
+    }
+    for (key in hash) {
+        if (hash[key].length === 1) return hash[key][0]
+    }   
 }
 
 const assert = require('assert')

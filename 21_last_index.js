@@ -19,16 +19,18 @@ _.findLastIndex(users, {
 */
 
 const findLastIndex = (array, needle) => {
-  let needle_key = Object.keys(needle)
-  needle_key = needle_key[0]
-  for (let i = array.length - 1; i >= 0; i--) {
-    if (array[i][needle_key] === needle[needle_key]) return i
-  }
-  // for (let i=array.length-1; i>=0; i--) {
-  //   for(key in needle) {
-  //     if (array[i][key] === needle[key]) return i
-  //   }
+  // let needle_key = Object.keys(needle)
+  // needle_key = needle_key[0]
+  // for (let i = array.length - 1; i >= 0; i--) {
+  //   if (array[i][needle_key] === needle[needle_key]) return i
   // }
+
+  for (let i=array.length-1; i>=0; i--) {
+    for(key in needle) {
+      if (array[i][key] === needle[key]) return i
+    }
+  }
+
 }
 
 
@@ -58,5 +60,91 @@ describe('Find Last Index', () => {
       a: 0
     });
     assert.equal(result, 3);
+  })
+  it('finds the last index', () => {
+    const users = [{
+        'id': 1,
+        'name': 'Bob',
+        'last': 'Brown'
+      },
+      {
+        'id': 2,
+        'name': 'Ted',
+        'last': 'White'
+      },
+      {
+        'id': 3,
+        'name': 'Matthew',
+        'last': 'McConaughey'
+      },
+      {
+        'id': 4,
+        'name': 'Kanye',
+        'last': 'West'
+      }
+    ];
+    const result = findLastIndex(users, {
+      id: 4,
+      name: 'Kanye'
+    });
+    assert.equal(result, 3)
+  })
+  it('finds the 2nd last index', () => {
+    const cars = [{
+        'make': 'Ford',
+        'model': 'GT40'
+      },
+      {
+        'make': 'Holden',
+        'model': 'Efijy'
+      },
+      {
+        'make': 'Tesla',
+        'model': 'Model 3'
+      },
+      {
+        'make': 'Tesla',
+        'model': 'Model x'
+      },
+      {
+        'make': 'Holden',
+        'model': 'Efijy'
+      },
+      {
+        'make': 'Ford',
+        'model': 'GT40'
+      },
+    ];
+    const result = findLastIndex(cars, {
+      model: 'Efijy'
+    });
+    assert.equal(result, 4)
+  })
+  it('finds the nothing', () => {
+    const users = [{
+        'id': 1,
+        'name': 'Bob',
+        'last': 'Brown'
+      },
+      {
+        'id': 2,
+        'name': 'Ted',
+        'last': 'White'
+      },
+      {
+        'id': 3,
+        'name': 'Matthew',
+        'last': 'McConaughey'
+      },
+      {
+        'id': 4,
+        'name': 'Kanye',
+        'last': 'West'
+      }
+    ];
+    const result = findLastIndex(users, {
+      name: 'Michael'
+    });
+    assert.equal(result, null)
   })
 });
