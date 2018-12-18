@@ -13,10 +13,14 @@ If the given string has any uppercase or numbers, it should return false
 */
 
 function isPangram(string) {
+<<<<<<< HEAD
     string = string.toLowerCase().split("") //lowercase strings 
     string = [...new Set(string)].sort().join("").trim() //sort chars uniquely
     return string.replace('abcdefghijklmnopqrstuvwxyz','') === ''
     // return [...new Set(string.replace(/[^a-z]/gi, ''))].length === 26 
+=======
+    //Your code here
+>>>>>>> d5bf5d77549b03a1f0c24803ebf53b7350287111
 }
 
 const assert = require('assert');
