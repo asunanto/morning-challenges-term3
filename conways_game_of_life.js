@@ -97,8 +97,8 @@ function conwaysGameOfLife(cells) {
 
 // }
 
-function* nthGen(int, game) {
-    yield conwaysGameOfLife(game)
+function* nthGen(game) {
+    while (1) yield game = conwaysGameOfLife(game)
 }
 
 let assert = require('assert')
@@ -168,11 +168,10 @@ describe("Conway's Game Of Life", function () {
             ]
 
         ]
-        let n = 0
-        for (let gen of nthGen(5, game)) {
+        let generatorObject = nthGen(game)
+        for (let gen = 0; gen < 5; gen++) {
             it("Should correctly return the next generation of the game", function () {
-                assert.deepEqual(gen, answers[n])
-                n += 1
+                assert.deepEqual(generatorObject.next().value, answers[gen])
             })
         }
     })
