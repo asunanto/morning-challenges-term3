@@ -34,30 +34,31 @@ const gifts = [
     "Twelve drummers drumming"    
 ]
 
-function twelveDaysOfChristmas() {
-// Your code here
+function twelveDaysOfChristmas(number) {
+    return [days[number-1], ...gifts.slice(0,number)]
 }
+
 
 const assert = require('chai').assert
 
-describe('Twelve days of Christmas challenge', function() {
+describe('Twelve days of Christmas challenge', function () {
 
-    it('If the fifth day is called, should return the five gifts in the array', function() {
-        assert.include(twelveDaysOfChristmas(), "fifth", "Should include fifth")
-        assert.include(twelveDaysOfChristmas(), "Four calling birds", "Should include four calling birds")
-        assert.include(twelveDaysOfChristmas(), "Two turtle doves", "Should include two turtle doves")
-        assert.include(twelveDaysOfChristmas(), "Five golden rings", "Should include five golden rings")
-        assert.include(twelveDaysOfChristmas(), "Three French hens", "Should include three french hens")
-        assert.include(twelveDaysOfChristmas(), "And a partridge in a pear tree.\n", "Should include a partridge in a pear tree")
+    it('If the fifth day is called, should return the five gifts in the array', function () {
+        assert.include(twelveDaysOfChristmas(5), "fifth", "Should include fifth")
+        assert.include(twelveDaysOfChristmas(5), "Four calling birds", "Should include four calling birds")
+        assert.include(twelveDaysOfChristmas(5), "Two turtle doves", "Should include two turtle doves")
+        assert.include(twelveDaysOfChristmas(5), "Five golden rings", "Should include five golden rings")
+        assert.include(twelveDaysOfChristmas(5), "Three French hens", "Should include three french hens")
+        assert.include(twelveDaysOfChristmas(5), "And a partridge in a pear tree.\n", "Should include a partridge in a pear tree")
     })
-    it('If the nineth day is called, should return the nine gifts in the array', function() {
-        assert.include(twelveDaysOfChristmas(), "nineth", "Should include ninth")
-        assert.include(twelveDaysOfChristmas(), "Six geese a-laying", "Should include six geese a-laying")
-        assert.include(twelveDaysOfChristmas(), "Nine ladies dancing", "Should include nine ladies dancing")
+    it('If the nineth day is called, should return the nine gifts in the array', function () {
+        assert.include(twelveDaysOfChristmas(9), "ninth", "Should include ninth")
+        assert.include(twelveDaysOfChristmas(9), "Six geese a-laying", "Should include six geese a-laying")
+        assert.include(twelveDaysOfChristmas(9), "Nine ladies dancing", "Should include nine ladies dancing")
     })
-    it('If the twelfth day is called, should return the twelve gifts in the array', function() {
-        assert.include(twelveDaysOfChristmas(), "twelfth", "Should include twelfth")
-        assert.include(twelveDaysOfChristmas(), "Eleven pipers piping", "Should include elven pipers piping")
-        assert.include(twelveDaysOfChristmas(), "Twelve drummers drumming", "Should include twelve drummers drumming")
+    it('If the twelfth day is called, should return the twelve gifts in the array', function () {
+        assert.include(twelveDaysOfChristmas(12), "twelfth", "Should include twelfth")
+        assert.include(twelveDaysOfChristmas(12), "Eleven pipers piping", "Should include elven pipers piping")
+        assert.include(twelveDaysOfChristmas(12), "Twelve drummers drumming", "Should include twelve drummers drumming")
     })
 })

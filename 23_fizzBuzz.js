@@ -28,9 +28,10 @@ FizzBuzz
 
 
 function fizzBuzz(array) {
-    array.forEach((element,i) => console.log(array[i] = (element % 3 ? '' : 'Fizz') + (element % 5 ? '' : 'Buzz') || element))
+    // array.forEach((element,i) => console.log(array[i] = (element % 3 ? '' : 'Fizz') + (element % 5 ? '' : 'Buzz') || element))
+    // return array
+    console.log(array = array.map((element) => (element % 3 ? '' : 'Fizz') + (element % 5 ? '' : 'Buzz') || element) )
     return array
-    // return array.map((element) => (element % 3 ? '' : 'Fizz') + (element % 5 ? '' : 'Buzz') || element) 
 }
 
 const assert = require('chai').assert
