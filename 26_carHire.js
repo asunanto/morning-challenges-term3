@@ -22,7 +22,15 @@
 */
 
 const rentalCarCost = (d) => {
-    // Your code here!
+    // let price = d *40
+    // if (d < 7){
+    //     if (d > 2) price = price - 20
+    // }else {
+    //     price = price - 50
+    // }
+    // return price
+
+    return d < 7 ? d > 2 ? d *40 - 20 : d *40 : d *40 - 50
 }
 
 
