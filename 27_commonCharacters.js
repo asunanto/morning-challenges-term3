@@ -11,14 +11,25 @@ commonCharacters("Alright alright alright", "") => ""
 */
 
 const commonCharacters = (string1, string2) => {
-    //    Your code here
+    string1 = string1.replace(/ /g,'')
+    string2 = string2.replace(/ /g,'')
+    let hash1 = {}, hash2 = {}, common_char ="" 
+    for (char1 of string1)
+        hash1[char1] = 1
+    for (char2 of string2)
+        hash2[char2] = 1
+    for (char in hash1)
+        if (hash1[char] === hash2[char]) common_char += char
+    return common_char
+    // let array1 = [...new Set(string1.replace(/ /g,''))] ,array2 = [...new Set(string2.replace(/ /g,''))]
+    // return array1.filter(char1 => array2.includes(char1)).join('')
 
 }
 
 // Your Code Should Pass:
 const chai = require('chai');
 const should = chai.should();
-    
+
 describe('Common Characters', () => {
     it('returns commons characters', () => {
         commonCharacters('abc', 'abc').should.equal('abc')
