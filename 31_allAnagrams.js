@@ -14,21 +14,7 @@ Test your solution with mocha 31_allAnagrams.js
 
 
 const allAnagrams = (string, array) => { 
-    let hash1 = {}
-    let hash2 = {}
-    let result = []
-    for (char of string) {
-        hash1[char] ? hash1[char]++ : hash1[char] = 1
-    }
-    
-    for (string of array) {
-        for (char of string) {
-            hash2[char] ? hash2[char]++ : hash2[char] = 1
-        }
-        if (JSON.stringify(hash1) === JSON.stringify(hash2)) result.push(string)
-
-    }
-    // return array.filter( str => str.split('').sort().join('') === string.split('').sort().join('') )
+    return array.filter( str => str.split('').sort().join('') === string.split('').sort().join('') )
 }
 
 

@@ -11,8 +11,8 @@ sample([1, 2, 3, 4, 5, 6], 3);
 => [1, 6, 2]
 */
 
-const sample = () => {
-//  Your code here
+const sample = (array, number) => {
+  return array.sort(() => Math.random() - 0.5).slice(0, number > 0 ? number : 1) 
 }
 
 
