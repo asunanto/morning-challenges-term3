@@ -16,14 +16,18 @@ Test your solution with mocha sumFinder.js
 */
 
 const sumFinder = (numbers, sum) => {
-    // Your code here
+    for (let i=0; i<numbers.length; i++)
+        for(let j=i+1; j<numbers.length; j++) 
+            if (numbers[i] + numbers[j] === sum && numbers[i] !== numbers[j]) 
+                return true
+    return false
 }
 
 let assert = require('assert')
 
 describe ("Sum Finder", () => {
     it("Should return true whe two items add up to sum", () => {
-        assert.equal(sumFinder([1,1], 2), true)
+        assert.equal(sumFinder([1,2], 3), true)
         assert.equal(sumFinder([1,8,9,5], 6), true)
     })
     it("Should return false if no tow numbers add up to sum", () => {
