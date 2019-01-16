@@ -12,8 +12,9 @@ Greetings!
 Goodbye!
 */
 
-const sayGreetings = () => {
+const sayGreetings = (callback) => {
     console.log('Greetings!')
+    callback()
 }
   
 const sayNiceToMeetYou = () => {

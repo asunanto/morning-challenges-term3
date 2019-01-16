@@ -9,7 +9,13 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 
 const filter = (items, callback) => {
   const results = []
-  // Your code here
+  // for (item of items) {
+  //   if (callback(item)) results.push(item)
+  // }
+  items.forEach(item => {
+    if (callback(item)) results.push(item)
+  });
+  console.log(results)
 }
 
 // I'm using your Filter method to return even numbers.
