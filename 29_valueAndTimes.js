@@ -14,7 +14,14 @@ If your feeling confident add more tests below.
 */
 
 const valueAndTimes = (value, times) => {
-    // Your code here
+    if (isNaN(value)){
+        let result = ""
+        for (let i=0; i<times; i++) result += value
+        return result
+    }
+    else {
+        return value*times || null
+    }
 }
 
 let assert = require('assert')
