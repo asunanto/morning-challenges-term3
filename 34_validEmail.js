@@ -24,8 +24,17 @@ Try adding your tests after finding a solution.
 */
 
 const validEmail = (email) => {
-    // Your code here
+    if ( email.split('').includes('@') && email.split('').includes('.') ) 
+        if ( email.indexOf('.') > email.indexOf('@') ) 
+            if(email.indexOf('@') !== 0)
+                return true
+    
+    return false
+
+    return //.test(email) //future regex solution
+
 }
+
 
 
 let assert = require('assert')
@@ -48,5 +57,9 @@ describe("Valid Email", () => {
     })
     it("Should identify valid emails", () => {
         assert.equal(validEmail('steve@gmail.com'), true)
+        assert.equal(validEmail('steve78@gmail.com'), true)
+        assert.equal(validEmail('steve.miller@gmail.com'), true)
+        // assert.equal(validEmail('steve.miller@qut.edu.au'), true)
+        // assert.equal(validEmail('steve.miller.78@gmail.com'), true)
     })
 })
